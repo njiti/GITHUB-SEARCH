@@ -1,4 +1,6 @@
+import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+import { GithubService } from '../github.service';
 
 @Component({
   selector: 'app-github-app',
@@ -7,9 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GithubAppComponent implements OnInit {
 
-  constructor() { }
+  public githubUserQuery!: string;
+  public githubProfile: any;
+  public githubRepos: any[] | undefined;
+  public errorMessage: string | undefined;
+
+
+  constructor(private githubService:GithubService) { }
+
+  public searchUser(){
+    //get github profile
+    this.githubService.getProfile().subscribe(next: (data)=>{
+      this:githubprofile = data,
+    }, error, (error: string) => {
+      this.errorMessage = error;
+    });
+
+    //get the github repos
+    this.githubService.getRepos(this.githubUserQuery).subscribe(next: (data) => {
+      this.githubRepos = data;
+    },error, (error: string) => {
+      this.errorMessage = error;
+    });
+  }
+
 
   ngOnInit(): void {
   }
 
 }
+function next(next: any, arg1: (data: any) => void, error: (msg: string) => never, arg3: (error: string) => void) {
+  throw new Error('Function not implemented.');
+}
+
