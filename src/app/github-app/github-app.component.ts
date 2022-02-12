@@ -19,7 +19,7 @@ export class GithubAppComponent implements OnInit {
 
   public searchUser(){
     //get github profile
-    this.githubService.getProfile().subscribe(next: (data)=>{
+    this.githubService.getProfile().subscribe(next()=>{
       this:githubprofile = data,
     }, error, (error: string) => {
       this.errorMessage = error;
@@ -38,7 +38,3 @@ export class GithubAppComponent implements OnInit {
   }
 
 }
-function next(next: any, arg1: (data: any) => void, error: (msg: string) => never, arg3: (error: string) => void) {
-  throw new Error('Function not implemented.');
-}
-
