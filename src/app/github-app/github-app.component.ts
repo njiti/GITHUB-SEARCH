@@ -19,7 +19,7 @@ export class GithubAppComponent implements OnInit {
 
   public searchUser(){
     //get github profile
-    this.githubService.getProfile(this.githubUserQuery).subscribe(next, ()=>{
+    this.githubService.getProfile().subscribe(next, (data) =>{
       this:githubProfile = data,
     }, error, (error: string) => {
       this.errorMessage = error;
@@ -36,9 +36,9 @@ export class GithubAppComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 }
-function next(next: any, arg1: (data: any) => void, error: (msg: string) => never, arg3: (error: string) => void) {
+function next(): ((value: any) => void) | Partial<import("rxjs").Observer<any>> | null | undefined {
   throw new Error('Function not implemented.');
 }
-
 
