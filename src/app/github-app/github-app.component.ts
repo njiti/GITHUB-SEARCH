@@ -19,14 +19,14 @@ export class GithubAppComponent implements OnInit {
 
   public searchUser(){
     //get github profile
-    this.githubService.getProfile().subscribe(next()=>{
-      this:githubprofile = data,
+    this.githubService.getProfile(this.githubUserQuery).subscribe(next, ()=>{
+      this:githubProfile = data,
     }, error, (error: string) => {
       this.errorMessage = error;
     });
 
     //get the github repos
-    this.githubService.getRepos(this.githubUserQuery).subscribe(next: (data) => {
+    this.githubService.getRepos(this.githubUserQuery).subscribe(next, (data) => {
       this.githubRepos = data;
     },error, (error: string) => {
       this.errorMessage = error;
@@ -36,5 +36,9 @@ export class GithubAppComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
+function next(next: any, arg1: (data: any) => void, error: (msg: string) => never, arg3: (error: string) => void) {
+  throw new Error('Function not implemented.');
+}
+
+
