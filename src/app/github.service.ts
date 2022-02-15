@@ -9,17 +9,17 @@ export class GithubService {
   repo: string = '';
 
   constructor(private httpClient: HttpClient) {
-    environment.username = 'njiti';
+    environment.userName = 'James';
    }
 
   //github profiles
   getUserInfo(){
-    return this.httpClient.get("https://api.github.com/users/"+ environment.username +"?client_id=" + environment.clientId + "&client_secret="+ environment.clientSecret);
+    return this.httpClient.get("https://api.github.com/users/"+ environment.userName +"?client_id=" + environment.clientId + "&client_secret="+ environment.clientSecret);
   }
 
   //for github repos
   getUserRepos(){
-    return this.httpClient.get("https://api.github.com/users/"+environment.username +"repos?client_id="+environment.clientId + "&client_secret=" + environment.clientSecret);
+    return this.httpClient.get("https://api.github.com/users/"+environment.userName +"repos?client_id="+environment.clientId + "&client_secret=" + environment.clientSecret);
   }
 
   searchRepos() {
@@ -28,7 +28,7 @@ export class GithubService {
     }))
   }
   updateProfile(userName:string){
-    environment.username =userName
+    environment.userName = userName
   }
   updateRepo(repoName:string) {
     this.repo = repoName;

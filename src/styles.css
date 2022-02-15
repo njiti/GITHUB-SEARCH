@@ -4,3 +4,54 @@
   margin: 0px;
   font-family: sans-serif;
 }
+body {
+  font-family: "Heebo", sans-serif;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-image: url("/assets/backgrounds/h_img.jpg");
+  background-size: cover;
+  filter: brightness('40%');
+  height: 100vh;
+  color: white;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.my-4 {
+  margin: 2rem auto;
+}
+
+.service-section {
+  background-image: url("/assets/backgrounds/s_image.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.we-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-direction: row;
+}
