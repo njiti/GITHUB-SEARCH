@@ -5,8 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class GithubPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value:any):any {
+    const date1 = new Date(value)
+    const date2 = new Date()
+
+    const oneDay = 1000 * 60 * 60 * 24
+
+    const diffInTime = date2.getTime() - date1.getTime()
+
+    const diffInDays = Math.round(diffInTime/oneDay)
+
+    return diffInDays;
   }
 
 }
