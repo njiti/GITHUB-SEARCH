@@ -1,0 +1,47 @@
+<div class="errorFont">
+  <form>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="username"
+      name="username"
+      (keyup)="ngOnInit()"
+      placeholder="Enter a username"
+    />
+  </form>
+
+  <br />
+
+  <div class="container" *ngIf="user">
+    <div class="row">
+      <div class="col-md-6 text-center ms-auto">
+        <img [src]="user.avatar_url" [title]="user.name" />
+      </div>
+      <div class="col-md-6">
+        <span mb-2>Username: {{ user.login }}</span>
+
+        <ul class="list-group">
+          <li class="list-group-item"><b>Name: </b> {{ user.name }}</li>
+          <li class="list-group-item"><b>Location: </b> {{ user.location }}</li>
+          <li class="list-group-item">
+            <b>Created: </b> {{ user.created_at | date }}
+          </li>
+        </ul>
+        <div class="d-flex py-4">
+          <button class="btn mx-3 btn-info">
+            {{ user.followers }} followers
+          </button>
+          <button class="btn mx-3 btn-info">
+            {{ user.following }} Following
+          </button>
+          <button class="btn mx-3 btn-info">
+            {{ user.public_repos }} Public Repos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<app-github-repos></app-github-repos>

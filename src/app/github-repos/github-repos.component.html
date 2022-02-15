@@ -1,14 +1,14 @@
-<div *ngIf= "githubRepos" class="card">
-  <div class= "card-header" bg-light text-white>
-    <h4>Github Repositories</h4>
-  </div>
-  <div class=""card-body>
-    <ul class="list-group">
-      <li *ngFor="let repo of githubRepos" class="list-group-item d-flex justify-content-between">
-          <a [href]= "repo.html_url" class= "text-primary font-weight-bold" target= "_blank">{{repo.name}}</a>
-          <span class="badge  badge-success">{{repo.stargazers_count}} stars</span>
-          <span class="badge  badge-warning">{{repo.watchers_count}} watchers</span>
-      </li>
-    </ul>
+<div class="errorFont">
+  <h2 class="text-center py-2 text-info">Repositories</h2>
+  <div class="d-flex flex-wrap">
+    <div class="border col-md-4 border-info p-3" *ngFor="let repo of repos">
+      <h3 class="text-info">{{ repo.name }}</h3>
+      <p>Created: {{ repo.created_at |date }}</p>
+      <p>Language Used: {{ repo.language }}</p>
+      <p>{{ repo.description }}</p>
+      <button class="btn btn-info">
+        <a href="{{ repo.html_url }}" target="_blank">To gitHub</a>
+      </button>
+    </div>
   </div>
 </div>

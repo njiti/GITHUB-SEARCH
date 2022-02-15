@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GithubService } from '../github.service';
 
 @Component({
   selector: 'app-github-repos',
@@ -6,16 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./github-repos.component.css']
 })
 export class GithubReposComponent implements OnInit {
+  string: any;
+  repos: any;
 
-  @Input() githubRepos: any;
-
-  constructor() { }
+  constructor(private githubService:GithubService) { }
 
   ngOnInit(): void {
+    this.githubService.getUserRepos().subscribe(repos => {
+      console.log(repos);
+      this.repos = repos;
+    })
   }
-
-}
-function input() {
-  throw new Error('Function not implemented.');
 }
 
