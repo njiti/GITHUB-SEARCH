@@ -11,6 +11,7 @@ import { GithubProfileDataComponent } from './github-profile-data/github-profile
 import { GithubReposComponent } from './github-repos/github-repos.component';
 import { GithubService } from './github.service';
 import { SearchComponent } from './search/search.component';
+import { GithubPipe } from './github.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SearchComponent } from './search/search.component';
     GithubProfileCardComponent,
     GithubProfileDataComponent,
     GithubReposComponent,
-    SearchComponent
+    SearchComponent,
+    GithubPipe
   ],
   imports: [
     BrowserModule,
